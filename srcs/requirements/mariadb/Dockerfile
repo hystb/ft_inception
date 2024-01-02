@@ -9,9 +9,9 @@ RUN apt update -y && apt upgrade -y && \
     apt install -y mariadb-server
 
 RUN service mariadb start && \ 
-    mysql -u root -e	"CREATE DATABASE IF NOT EXISTS ${DB_NAME}; \
-						ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_PASSWORD_ROOT}'; \
-						CREATE USER ${DB_USER}@'%' IDENTIFIED BY '${DB_PASSWORD}'; \
+    mysql -u root -e	"CREATE DATABASE IF NOT EXISTS ${DB_NAME};\
+						ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_PASSWORD_ROOT}';\
+						CREATE USER ${DB_USER}@'%' IDENTIFIED BY '${DB_PASSWORD}';\
 						GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${DB_USER}'@'%';\
                         FLUSH PRIVILEGES;"
 
