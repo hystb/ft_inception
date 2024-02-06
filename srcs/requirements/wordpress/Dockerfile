@@ -15,7 +15,6 @@ RUN apt install -y php-fpm php-mysqli mariadb-client
 COPY ./conf/php.conf /etc/php/7.4/fpm/pool.d/www.conf
 COPY ./conf/init.sh /init.sh
 COPY ./conf/astra.zip /astra.zip
-COPY ./conf/blogger /blogger
 EXPOSE 9000
 
 CMD ["sh", "/init.sh"]
