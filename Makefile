@@ -16,7 +16,6 @@ clean:
 
 fclean:
 	docker compose -f srcs/docker-compose.yml down --rmi all -v --remove-orphans
-	docker container prune -f
 	sudo rm -rf $(DATA)*
 	
 

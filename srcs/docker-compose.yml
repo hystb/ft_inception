@@ -11,7 +11,7 @@ services:
                 - DB_PW=$DB_PW
                 - DB_ROOT_PW=$DB_ROOT_PW
         volumes:
-                - mariadb_data:/var/lib/mysql
+                - mariadb_data:/var/lib/mysql:rw
         env_file:
             - .env
         restart: on-failure
@@ -29,7 +29,7 @@ services:
         depends_on:
             - mariadb 
         volumes:
-            - wordpress_data:/var/www/wordpress
+            - wordpress_data:/var/www/wordpress:rw
         networks:
             - ft_inception
     nginx:
@@ -42,7 +42,7 @@ services:
             - "443:443"
         restart: on-failure
         volumes:
-            - wordpress_data:/var/www/wordpress
+            - wordpress_data:/var/www/wordpress:rw
         networks:
             - ft_inception
         depends_on:
